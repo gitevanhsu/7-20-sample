@@ -1,0 +1,35 @@
+$color_black: #000;
+$color_grey: #ccc;
+
+@mixin size($w, $h: $w) {
+  width: $w;
+  height: $h;
+}
+
+@mixin border($size, $radius: 0, $color: #f00) {
+  border: solid $size $color;
+
+  @if $radius != 0 {
+    border-radius: $radius;
+  }
+}
+
+.wrap {
+  display: flex;
+}
+
+.big-box {
+  @include size(200px);
+  @include border(2px, 10px);
+  background-color: $color_black;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  margin: 0px 10px;
+}
+
+.box {
+  @include size(100px);
+  @include border(2px, 0, #0f0);
+  background-color: $color_grey;
+}
